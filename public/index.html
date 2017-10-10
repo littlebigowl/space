@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Space Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- CREATED BY LittleBigOWL -->
+<!-- CONTACT: littlebigowl@outlook.com -->
+
+<body>
+    <div class="scoreContainer">
+        <h1 id="shieldText">SHIELD: <span id="shield">100</span>%</h1>
+        <h1 id="infoText"></h1>
+        <h1>SCORE: <span id="score">0</span></h1>
+    </div>
+
+    <div id="buttonContainer">
+        <h1>Space Guardiens</h1>
+        <div>
+            <button id="startButton" class="button">START GAME</button>
+        </div>
+        <div>
+            <button id="resetButton" class="button">RESET GAME</button>
+        </div>
+        <div>
+            <button id="continueButton" class="button">CONTINUE</button>
+        </div>
+        <div>
+            <button id="soundButton" class="button button2">SOUND: <span id="soundStatus">ON</span></button>
+        </div>
+        <div id="controlContainer">
+            <img src="images/controls.png" alt="">
+        </div>
+        <p>CREATED BY LittleBigOwl</p>
+    </div>
+
+    <img id="mainSpaceShip" src="images/spaceShip.png" alt="Main space ship">
+
+    <!-- IMAGES LOADING FOR GAME -->
+    <div class="loadingContainer">
+        <img src="images/explosion/explosion1.png" alt="explosion 1">
+        <img src="images/explosion/explosion2.png" alt="explosion 2">
+        <img src="images/explosion/explosion3.png" alt="explosion 3">
+        <img src="images/explosion/explosion4.png" alt="explosion 4">
+        <img src="images/explosion/explosion5.png" alt="explosion 5">
+        <img src="images/explosion/explosion6.png" alt="explosion 6">
+        <img src="images/explosion/explosion7.png" alt="explosion 7">
+        <img src="images/explosion/explosion8.png" alt="explosion 8">
+
+        <img src="images/enemy/enemy1.png" alt="enemy 1">
+        <img src="images/enemy/enemy2.png" alt="enemy 2">
+        <img src="images/enemy/enemy3.png" alt="enemy 3">
+        <img src="images/enemy/enemy4.png" alt="enemy 4">
+        <img src="images/enemy/enemy5.png" alt="enemy 5">
+        <img src="images/enemy/enemy6.png" alt="enemy 6">
+        <img src="images/enemy/enemyLaserShot.png" alt="enemy laser shot">
+
+        <img src="images/laserShot.png" alt="laserShot">
+        <img src="images/spaceShip.png" alt="space ship">
+        <img src="images/spaceShipShield.png" alt="space ship with shield">
+
+        <img src="images/planets/planet1.png" alt="planet 1">
+        <img src="images/planets/planet2.png" alt="planet 2">
+        <img src="images/planets/planet3.png" alt="planet 3">
+        <img src="images/planets/planet4.png" alt="planet 4">
+        <img src="images/planets/planet5.png" alt="planet 5">
+        <img src="images/planets/planet6.png" alt="planet 6">
+        <img src="images/planets/planet7.png" alt="planet 7">
+        <img src="images/planets/planet8.png" alt="planet 8">
+        <img src="images/planets/planet9.png" alt="planet 9">
+        <img src="images/planets/planet10.png" alt="planet 10">
+        <img src="images/planets/planet11.png" alt="planet 11">
+        <img src="images/planets/planet12.png" alt="planet 12">
+        <img src="images/planets/planet13.png" alt="planet 13">
+        <img src="images/planets/planet14.png" alt="planet 14">
+        <img src="images/planets/planet15.png" alt="planet 15">
+        <img src="images/planets/planet16.png" alt="planet 16">
+        <img src="images/planets/planet17.png" alt="planet 17">
+        <img src="images/planets/planet18.png" alt="planet 18">
+        <img src="images/planets/planet19.png" alt="planet 19">
+        <img src="images/planets/planet20.png" alt="planet 20">
+
+    </div>
+
+    <audio id="explosionSound" src="sound/explosionShort.mp3"></audio>
+    <audio id="laserSound" src="sound/laserShot.mp3"></audio>
+    <!-- <audio src="sound/starlightBG.mp3" loop="true" autoplay></audio> -->
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

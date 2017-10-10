@@ -1,0 +1,28 @@
+{
+  "name": "spacegame",
+  "version": "1.0.0",
+  "description": "Space game: Space guardiens",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/littlebigowl/space.git"
+  },
+  "keywords": [
+    "space",
+    "game"
+  ],
+  "author": "LittleBigOwl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/littlebigowl/space/issues"
+  },
+  "homepage": "https://github.com/littlebigowl/space#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-minify": "^1.0.0"
+  }
+}
