@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Exo');
+
+*{
+    margin: 0;
+    padding: 0;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+body{
+    background: url("../images/bg1.jpeg") center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    color: #eee;
+    font-family: 'Exo', sans-serif;
+}
+
+.scoreContainer{
+    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5000;
+}
+
+.scoreContainer h1{
+    width: 33vw;
+    color: #FFD700;
+}
+
+h1{
+    color: #eee;
+    text-align: center;
+    font-size: calc(16px + 1.2vw);
+    -moz-user-select: none;
+    user-select: none;
+}
+
+#mainSpaceShip{
+    position: absolute;
+    display: none;
+    z-index: 500;
+    
+}
+
+
+.button{
+    margin: 0 auto;
+    color: #eee;
+    text-align: center;
+    margin: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 25px;
+    font-size: calc(16px + 0.8vw);
+    border-radius: 10px;
+    user-select: none;
+    border: 2px solid #eee ;
+}
+
+.button2{
+    font-size: calc(12px + 0.3vw);
+}
+
+#buttonContainer{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+#buttonContainer h1{
+    margin-bottom: 20px;
+    color: #FFD700;    
+}
+
+#buttonContainer p{
+    margin-bottom: 20px;
+    color: #ccc;
+    font-size: calc(10px + 0.6vw);
+    
+}
+
+#controlContainer{
+    margin: 20px 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+#controlContainer img{
+    width: 80%;  
+}
+
+
+.button:hover{
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    cursor: pointer;
+}
+
+.button:active{
+    color: #eee;
+    border: 2px solid #FFD700;
+    cursor: pointer;
+
+}
+
+#resetButton, #continueButton{
+    display: none;
+}
+
+.laserShot{
+    position: absolute;
+}
+
+.planet{
+    position: absolute;
+}
+
+.enemy{
+    position: absolute;
+    z-index: 50;
+}
+
+.enemyLaserShot{
+    position: absolute;
+}
+
+.loadingContainer img{
+    height: 0;
+    width: 0;
+    
+}
+
+@media (max-width: 500px){
+    #controlContainer img{
+        width: 100%;
+    }
+}
