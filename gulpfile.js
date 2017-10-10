@@ -35,3 +35,8 @@ gulp.task("minify", function(){
         .pipe(gulp.dest("public/js"));
 });
 
+// COPY all to PUBLIC(distribution folder) to be pushed to GitHub-Page
+gulp.task("copyPublic",function(){
+    gulp.src("public/**")
+        .pipe(gulp.dest("../githubpage"));
+});
