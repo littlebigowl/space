@@ -8,12 +8,12 @@ window.addEventListener("DOMContentLoaded", function () {
   let playing = false;
   let reset = true;
   let gameOver = false;
-  
+
   // SOUND
   let sound = true;
-  let laserSound = [new Audio("sound/laserShot.mp3"),new Audio("sound/laserShot.mp3"),new Audio("sound/laserShot.mp3"),new Audio("sound/laserShot.mp3")];
+  let laserSound = [new Audio("sound/laserShot.mp3"), new Audio("sound/laserShot.mp3"), new Audio("sound/laserShot.mp3"), new Audio("sound/laserShot.mp3")];
   let helpLaserSound = 0;
-  let explosionSound = [new Audio("sound/explosionShort.mp3"),new Audio("sound/explosionShort.mp3"),new Audio("sound/explosionShort.mp3"),new Audio("sound/explosionShort.mp3")]
+  let explosionSound = [new Audio("sound/explosionShort.mp3"), new Audio("sound/explosionShort.mp3"), new Audio("sound/explosionShort.mp3"), new Audio("sound/explosionShort.mp3")]
   let helpExplosionSound = 0;
   let soundButton = document.getElementById("soundButton");
 
@@ -94,7 +94,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     resetButton.style.display = "inline";
     continueButton.style.display = "inline";
-    buttonContainer.style.display = "none";    
+    buttonContainer.style.display = "none";
     // show SpaceShip - image
     spaceShip.style.display = "block";
 
@@ -117,13 +117,13 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 
   // SOUND BUTTON
-  soundButton.addEventListener("click",function(){
-    if(sound){
+  soundButton.addEventListener("click", function () {
+    if (sound) {
       sound = false;
       document.getElementById("soundStatus").innerText = "OFF";
-    }else{
+    } else {
       sound = true;
-      document.getElementById("soundStatus").innerText = "ON";      
+      document.getElementById("soundStatus").innerText = "ON";
     }
   });
 
@@ -168,10 +168,22 @@ window.addEventListener("DOMContentLoaded", function () {
       setLeftDistance();
       setTopDistance();
 
+      // reseting help var for playing shield audio
+      for(let i = 0; i<shieldSoundHelp.length; i++){
+        shieldSoundHelp[i] = false;
+      }
+
     }
 
     // ACTUAL GAME LOOP    
     gameLoop = setInterval(function () {
+
+      // playing welcome message
+      if(sound && !shieldSoundHelp[3]){
+        shieldSound[3].play();
+        shieldSoundHelp[3] = true;
+      }
+      
 
       controlColisionSpaceShip()
 
@@ -276,8 +288,8 @@ window.addEventListener("DOMContentLoaded", function () {
     laserShot.style.top = centerOfShipTop + "px";
     laserShot.style.left = centerOfShip + "px";
 
-    if(sound){
-      playLaserSound();      
+    if (sound) {
+      playLaserSound();
     }
   };
 
@@ -305,9 +317,9 @@ window.addEventListener("DOMContentLoaded", function () {
     let randomLeft = 0;
 
     let cont = true;
-    while(cont){
+    while (cont) {
       randomLeft = Math.floor(Math.random() * (availableWidth - widthOfPlanet));
-      if(randomLeft + widthOfPlanet < lastEnemyLeftMin || randomLeft>lastEnemyLeftMax){
+      if (randomLeft + widthOfPlanet < lastEnemyLeftMin || randomLeft > lastEnemyLeftMax) {
         cont = false;
       }
     }
@@ -342,7 +354,7 @@ window.addEventListener("DOMContentLoaded", function () {
     enemy.style.left = randomLeft + "px";
 
     lastEnemyLeftMin = randomLeft;
-    lastEnemyLeftMax = randomLeft +100;
+    lastEnemyLeftMax = randomLeft + 100;
   };
 
 
@@ -490,8 +502,8 @@ window.addEventListener("DOMContentLoaded", function () {
   function explosion(object) {
     let x = 1;
 
-    if(sound){
-      playExplosionSound();      
+    if (sound) {
+      playExplosionSound();
     }
 
     let left = object.offsetLeft;
@@ -528,7 +540,7 @@ window.addEventListener("DOMContentLoaded", function () {
         let leftEnemyMax = leftEnemyMin + enemies[i].width;
         let centerOfPlayer = spaceShipLeft + spaceShipWidth / 2;
 
-        if (centerOfPlayer > leftEnemyMin && centerOfPlayer < leftEnemyMax && helpEnemyShoot <= 0 && top<spaceShipTop) {
+        if (centerOfPlayer > leftEnemyMin && centerOfPlayer < leftEnemyMax && helpEnemyShoot <= 0 && top < spaceShipTop) {
           createEnemyLaserShot(enemies[i]);
           helpEnemyShoot = 400;
         }
@@ -554,11 +566,9 @@ window.addEventListener("DOMContentLoaded", function () {
     enemyLaserShot.style.top = centerOfShipTop + "px";
     enemyLaserShot.style.left = centerOfShip + "px";
 
-    if(sound){
+    if (sound) {
       playLaserSound();
     }
-    
-
   };
 
   // MOVING ENEMY LASER + COLISION DETECTION
@@ -580,6 +590,7 @@ window.addEventListener("DOMContentLoaded", function () {
             let randomShieldHit = Math.floor(Math.random() * 6) + 5;
             totalShield -= randomShieldHit;
             showShield();
+            checkShieldAudio()
           } else {
             totalShield = 0;
             explosionPlayer();
@@ -672,8 +683,8 @@ window.addEventListener("DOMContentLoaded", function () {
     totalShield = 0;
     updateShield();
 
-    if(sound){
-      playExplosionSound();      
+    if (sound) {
+      playExplosionSound();
     }
 
     let x = 1;
@@ -755,8 +766,8 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   // PLAY LASER SOUND function
-  function playLaserSound(){
-    if(helpLaserSound>=laserSound.length){
+  function playLaserSound() {
+    if (helpLaserSound >= laserSound.length) {
       helpLaserSound = 0;
     }
     laserSound[helpLaserSound].play();
@@ -764,12 +775,37 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   // PLAY EXPLOSION SOUND function
-  function playExplosionSound(){
-    if(helpExplosionSound>=explosionSound.length){
+  function playExplosionSound() {
+    if (helpExplosionSound >= explosionSound.length) {
       helpExplosionSound = 0;
     }
     explosionSound[helpExplosionSound].play();
     helpExplosionSound++;
   }
+
+  let shieldSound = [new Audio("sound/shield50.mp3"), new Audio("sound/shield25.mp3"), new Audio("sound/shield10.mp3"),new Audio("sound/welcome.mp3")];
+  let shieldSoundHelp = [false,false,false,false];
+  function checkShieldAudio(){
+      if(totalShield<=50 && !shieldSoundHelp[0]){
+        if(sound){
+          shieldSound[0].play()
+        }
+        shieldSoundHelp[0] = true;
+      }
+      if(totalShield<=25 && !shieldSoundHelp[1]){
+        if(sound){
+          shieldSound[1].play()
+        }
+        shieldSoundHelp[1] = true;
+      }
+      if(totalShield<=10 && !shieldSoundHelp[2]){
+        if(sound){
+          shieldSound[2].play()
+        }  
+        shieldSoundHelp[2] = true;
+      }
+  }
+    
+
 
 });
